@@ -49,10 +49,9 @@
     var activeFont = options.font || this.internal.getFont();
     var fontSize = options.fontSize || this.internal.getFontSize();
     var charSpace = options.charSpace || this.internal.getCharSpace();
+    var k = this.internal.scaleFactor;
 
-    var widths = options.widths
-      ? options.widths
-      : activeFont.metadata.Unicode.widths;
+    var widths = options.widths ? options.widths : activeFont.metadata.Unicode.widths;
     var widthsFractionOf = widths.fof ? widths.fof : 1;
     var kerning = options.kerning
       ? options.kerning
@@ -85,7 +84,7 @@
           !isNaN(parseInt(kerning[char_code][prior_char_code], 10))
         ) {
           kerningValue =
-            kerning[char_code][prior_char_code] / kerningFractionOf;
+            kerning[char_code][prior_char_code] / kerningFractionOf + 1.0 * k * charSpace / fontSize;
         } else {
           kerningValue = 0;
         }
