@@ -133,7 +133,7 @@
             width = 0;
             for (i = 0, _ref = string.length; 0 <= _ref ? i < _ref : i > _ref; i = 0 <= _ref ? ++i : --i) {
                 charCode = string.charCodeAt(i);
-                width += (this.widthOfGlyph(this.characterToGlyph(charCode)) + charSpace * (1000/ size)) || 0;
+                width += (this.widthOfGlyph(this.characterToGlyph(charCode)) + charSpace * (1000/ (size * (1000 / this.head.unitsPerEm)))) || 0;
             }
             scale = size / 1000;
             return width * scale;

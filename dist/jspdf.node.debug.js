@@ -3,8 +3,8 @@
 /** @license
  *
  * jsPDF - PDF Document creation from JavaScript
- * Version 1.5.3 Built on 2020-03-17T10:26:29.821Z
- *                      CommitID e592f8c961
+ * Version 1.5.3 Built on 2020-10-28T14:35:31.994Z
+ *                      CommitID 11ed9d6813
  *
  * Copyright (c) 2010-2018 James Hall <james@parall.ax>, https://github.com/MrRio/jsPDF
  *               2015-2018 yWorks GmbH, http://www.yworks.com
@@ -3412,7 +3412,6 @@ var jsPDF = function (global) {
 
 
       var lang = options.lang;
-      //renderingMode
 
 
       var renderingMode = -1;
@@ -25750,7 +25749,7 @@ global.tmp = WebPDecoder;
 
       for (i = 0, _ref = string.length; 0 <= _ref ? i < _ref : i > _ref; i = 0 <= _ref ? ++i : --i) {
         charCode = string.charCodeAt(i);
-        width += this.widthOfGlyph(this.characterToGlyph(charCode)) + charSpace * (1000 / size) || 0;
+        width += this.widthOfGlyph(this.characterToGlyph(charCode)) + charSpace * (1000 / (size * (1000 / this.head.unitsPerEm))) || 0;
       }
 
       scale = size / 1000;
